@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+const float twopi = 6.2831853071f;
 struct taylor{
 	int number; /*номер*/
 	float current; /*нынешний член*/
@@ -71,6 +72,14 @@ int main() {
 	scanf_s("%f", &arg);
 	printf("Enter n: ");
 	scanf_s("%d", &n);
+	if (choiec == 2 || choiec == 3) {
+		while (arg >= twopi) {
+			arg -= twopi;
+		}
+		while (arg < 0) {
+			arg += twopi;
+		}
+	}
 	switch (choiec) {
 		case 1:
 			step.x = arg;
